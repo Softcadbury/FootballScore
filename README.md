@@ -1,4 +1,5 @@
-FootballScore
-=============
+#FootballScore
 
-Personal project [C# - WPF - MVVM]
+## Description
+
+Wpf application to see football scores
