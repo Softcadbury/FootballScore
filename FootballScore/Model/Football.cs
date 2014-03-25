@@ -4,22 +4,22 @@
 
     public class Football
     {
-        public List<TeamRanking> teamRankingFrance { get; set; }
-        public List<TeamRanking> teamRankingEngland { get; set; }
-        public List<TeamRanking> teamRankingSpain { get; set; }
-        public List<TeamRanking> teamRankingItalia { get; set; }
-        public List<TeamRanking> teamRankingGermany { get; set; }
+        public List<TeamRanking> TeamRankingFrance { get; set; }
+        public List<TeamRanking> TeamRankingEngland { get; set; }
+        public List<TeamRanking> TeamRankingSpain { get; set; }
+        public List<TeamRanking> TeamRankingItalia { get; set; }
+        public List<TeamRanking> TeamRankingGermany { get; set; }
 
-        public List<PlayerRanking> playerRankingFrance { get; set; }
-        public List<PlayerRanking> playerRankingEngland { get; set; }
-        public List<PlayerRanking> playerRankingSpain { get; set; }
-        public List<PlayerRanking> playerRankingItalia { get; set; }
-        public List<PlayerRanking> playerRankingGermany { get; set; }
+        public List<PlayerRanking> PlayerRankingFrance { get; set; }
+        public List<PlayerRanking> PlayerRankingEngland { get; set; }
+        public List<PlayerRanking> PlayerRankingSpain { get; set; }
+        public List<PlayerRanking> PlayerRankingItalia { get; set; }
+        public List<PlayerRanking> PlayerRankingGermany { get; set; }
 
-        public List<TeamResult> resultsFrance { get; set; }
-        public List<TeamResult> resultsEngland { get; set; }
-        public List<TeamResult> resultsSpain { get; set; }
-        public List<TeamResult> resultsItalia { get; set; }
-        public List<TeamResult> resultsGermany { get; set; }
+        public List<TeamResult> ResultsFrance { get; set; }
+        public List<TeamResult> ResultsEngland { get; set; }
+        public List<TeamResult> ResultsSpain { get; set; }
+        public List<TeamResult> ResultsItalia { get; set; }
+        public List<TeamResult> ResultsGermany { get; set; }
     }
 }

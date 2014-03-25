@@ -8,11 +8,11 @@
     {
         public static void Generate(Football football, List<string> pageContentList)
         {
-            football.playerRankingFrance = GetPlayerRanking(pageContentList[10]);
-            football.playerRankingEngland = GetPlayerRanking(pageContentList[11]);
-            football.playerRankingSpain = GetPlayerRanking(pageContentList[12]);
-            football.playerRankingItalia = GetPlayerRanking(pageContentList[13]);
-            football.playerRankingGermany = GetPlayerRanking(pageContentList[14]);
+            football.PlayerRankingFrance = GetPlayerRanking(pageContentList[10]);
+            football.PlayerRankingEngland = GetPlayerRanking(pageContentList[11]);
+            football.PlayerRankingSpain = GetPlayerRanking(pageContentList[12]);
+            football.PlayerRankingItalia = GetPlayerRanking(pageContentList[13]);
+            football.PlayerRankingGermany = GetPlayerRanking(pageContentList[14]);
         }
 
         private static List<PlayerRanking> GetPlayerRanking(string pageContent)
