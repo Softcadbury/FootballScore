@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Football.cs" />
+    <Compile Include="Model\PlayerRanking.cs" />
+    <Compile Include="Model\TeamRanking.cs" />
+    <Compile Include="Model\TeamResult.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>

@@ -1,7 +1,6 @@
-﻿using System.Windows;
-
-namespace FootballScore.Views
+﻿namespace FootballScore.Views
 {
+    using System.Windows;
     using FootballScore.ViewModels;
 
     /// <summary>
