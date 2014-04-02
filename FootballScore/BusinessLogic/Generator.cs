@@ -8,47 +8,48 @@
 
     public static class Generator
     {
-        public static Football Generate()
+        public static Countries Generate()
         {
             List<string> pageContentList = GetPageContentList();
 
-            var football = new Football();
+            var countries = new Countries();
 
-            GeneratorTeamResult.Generate(football, pageContentList);
-            GeneratorTeamRanking.Generate(football, pageContentList);
-            GeneratorPlayerRanking.Generate(football, pageContentList);
+            GeneratorTeamResult.Generate(countries, pageContentList);
+            GeneratorTeamRanking.Generate(countries, pageContentList);
+            GeneratorPlayerRanking.Generate(countries, pageContentList);
 
-            return football;
+            return countries;
         }
 
         private static List<string> GetPageContentList()
         {
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                var pageTaskList = new List<Task<string>>();
+                var pageTaskList = new[]
+                                   {
+                                       // Team result
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/ligue-1-resultats.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-angleterre-resultats.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-espagne-resultats.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-italie-resultats.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-allemagne-resultats.html"),
 
-                // Team result
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/ligue-1-resultats.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-angleterre-resultats.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-espagne-resultats.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-italie-resultats.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-allemagne-resultats.html"));
+                                       // Team ranking
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/ligue-1-classement.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-angleterre-classement.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-espagne-classement.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-italie-classement.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-allemagne-classement.html"),
 
-                // Team ranking
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/ligue-1-classement.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-angleterre-classement.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-espagne-classement.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-italie-classement.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/championnat-d-allemagne-classement.html"));
+                                       // Player ranking
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1914_BUT_1.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1909_BUT_1.html.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1907_BUT_1.html.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1905_BUT_1.html"),
+                                       client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1911_BUT_1.html")
+                                   };
 
-                // Player ranking
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1914_BUT_1.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1909_BUT_1.html.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1907_BUT_1.html.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1905_BUT_1.html"));
-                pageTaskList.Add(client.GetStringAsync("http://www.lequipe.fr/Football/FootballClassementChampionnat1911_BUT_1.html"));
-
-                Task.WaitAll(pageTaskList.ToArray());
+                Task.WaitAll(pageTaskList);
                 return pageTaskList.Select(t => t.Result).ToList();
             }
         }

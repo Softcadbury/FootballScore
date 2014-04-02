@@ -59,7 +59,8 @@
     <Compile Include="BusinessLogic\GeneratorPlayerRanking.cs" />
     <Compile Include="BusinessLogic\GeneratorTeamRanking.cs" />
     <Compile Include="BusinessLogic\GeneratorTeamResult.cs" />
-    <Compile Include="Model\Football.cs" />
+    <Compile Include="Model\Countries.cs" />
+    <Compile Include="Model\Country.cs" />
     <Compile Include="Model\PlayerRanking.cs" />
     <Compile Include="Model\TeamRanking.cs" />
     <Compile Include="Model\TeamResult.cs" />
