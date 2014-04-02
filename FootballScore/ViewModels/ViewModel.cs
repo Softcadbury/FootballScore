@@ -1,21 +1,21 @@
 ﻿namespace FootballScore.ViewModels
 {
     using FootballScore.BusinessLogic;
+    using FootballScore.Model;
 
     public class ViewModel : BaseViewModel
     {
         public ViewModel()
         {
-            Text = "lola";
-            var countries = Generator.Generate();
+            Countries = Generator.Generate();
         }
 
-        private string _text;
+        private Countries _countries;
 
-        public string Text
+        public Countries Countries
         {
-            get { return _text; }
-            set { _text = value; OnPropertyChanged("Text"); }
+            get { return _countries; }
+            set { _countries = value; OnPropertyChanged("Countries"); }
         }
     }
 }

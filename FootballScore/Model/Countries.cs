@@ -4,11 +4,11 @@
     {
         public Countries()
         {
-            France = new Country();
-            England = new Country();
-            Spain = new Country();
-            Italia = new Country();
-            Germany = new Country();
+            France = new Country("fr.jpg");
+            England = new Country("eng.jpg");
+            Spain = new Country("sp.jpg");
+            Italia = new Country("it.jpg");
+            Germany = new Country("ger.jpg");
         }
 
         public Country France { get; set; }
