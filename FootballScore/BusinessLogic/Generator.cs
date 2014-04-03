@@ -8,11 +8,18 @@
 
     public static class Generator
     {
-        public static Countries Generate()
+        public static List<Country> Generate()
         {
             List<string> pageContentList = GetPageContentList();
 
-            var countries = new Countries();
+            var countries = new List<Country>
+                                {
+                                    new Country("fr.jpg"),
+                                    new Country("eng.jpg"),
+                                    new Country("sp.jpg"),
+                                    new Country("it.jpg"),
+                                    new Country("ger.jpg")
+                                };
 
             GeneratorTeamResult.Generate(countries, pageContentList);
             GeneratorTeamRanking.Generate(countries, pageContentList);

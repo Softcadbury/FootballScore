@@ -6,13 +6,13 @@
 
     public static class GeneratorPlayerRanking
     {
-        public static void Generate(Countries countries, List<string> pageContentList)
+        public static void Generate(List<Country> countries, List<string> pageContentList)
         {
-            countries.France.PlayerRanking = GetPlayerRanking(pageContentList[10]);
-            countries.England.PlayerRanking = GetPlayerRanking(pageContentList[11]);
-            countries.Spain.PlayerRanking = GetPlayerRanking(pageContentList[12]);
-            countries.Italia.PlayerRanking = GetPlayerRanking(pageContentList[13]);
-            countries.Germany.PlayerRanking = GetPlayerRanking(pageContentList[14]);
+            countries[0].PlayerRanking = GetPlayerRanking(pageContentList[10]);
+            countries[1].PlayerRanking = GetPlayerRanking(pageContentList[11]);
+            countries[2].PlayerRanking = GetPlayerRanking(pageContentList[12]);
+            countries[3].PlayerRanking = GetPlayerRanking(pageContentList[13]);
+            countries[4].PlayerRanking = GetPlayerRanking(pageContentList[14]);
         }
 
         private static List<PlayerRanking> GetPlayerRanking(string pageContent)

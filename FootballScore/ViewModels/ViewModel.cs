@@ -1,5 +1,7 @@
 ﻿namespace FootballScore.ViewModels
 {
+    using System.Collections.Generic;
+
     using FootballScore.BusinessLogic;
     using FootballScore.Model;
 
@@ -10,9 +12,9 @@
             Countries = Generator.Generate();
         }
 
-        private Countries _countries;
+        private List<Country> _countries;
 
-        public Countries Countries
+        public List<Country> Countries
         {
             get { return _countries; }
             set { _countries = value; OnPropertyChanged("Countries"); }
