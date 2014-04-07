@@ -10,15 +10,16 @@
     {
         public static List<Country> Generate()
         {
+            const string ImageSource = "../../Images/";
             List<string> pageContentList = GetPageContentList();
 
             var countries = new List<Country>
                                 {
-                                    new Country("fr.jpg"),
-                                    new Country("eng.jpg"),
-                                    new Country("sp.jpg"),
-                                    new Country("it.jpg"),
-                                    new Country("ger.jpg")
+                                    new Country(ImageSource + "fr.jpg"),
+                                    new Country(ImageSource + "eng.jpg"),
+                                    new Country(ImageSource + "sp.jpg"),
+                                    new Country(ImageSource + "it.jpg"),
+                                    new Country(ImageSource + "ger.jpg")
                                 };
 
             GeneratorTeamResult.Generate(countries, pageContentList);
