@@ -20,7 +20,7 @@
             var sectionContent = Regex.Match(pageContent, @"<div id=""CONT"">(.*?)<div id=""col-droite""", RegexOptions.IgnoreCase);
 
             var teamList = Regex.Matches(sectionContent.Value, @"<strong>(.*?)</strong></a>", RegexOptions.IgnoreCase);
-            var imageList = Regex.Matches(sectionContent.Value, @"<img(.*?)>", RegexOptions.IgnoreCase);
+            var imageList = Regex.Matches(sectionContent.Value, @"<img src=""(.*?)"" alt", RegexOptions.IgnoreCase);
             var pointList = Regex.Matches(sectionContent.Value, @"<div class=""points"">(.*?)</div>", RegexOptions.IgnoreCase);
             var dayList = Regex.Matches(sectionContent.Value, @"<div class=""j"">(.*?)</div>", RegexOptions.IgnoreCase);
             var differenceList = Regex.Matches(sectionContent.Value, @"<div class=""diff"">(.*?)</div>", RegexOptions.IgnoreCase);
