@@ -12,6 +12,6 @@
         public string Image { get; set; }
         public List<TeamRanking> TeamRanking { get; set; }
         public List<PlayerRanking> PlayerRanking { get; set; }
-        public List<TeamResult> Results { get; set; }
+        public List<TeamResult> TeamResult { get; set; }
     }
 }

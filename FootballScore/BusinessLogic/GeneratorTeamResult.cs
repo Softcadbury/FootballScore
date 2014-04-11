@@ -8,11 +8,11 @@
     {
         public static void Generate(List<Country> countries, List<string> pageContentList)
         {
-            countries[0].Results = GetResults(pageContentList[0]);
-            countries[1].Results = GetResults(pageContentList[1]);
-            countries[2].Results = GetResults(pageContentList[2]);
-            countries[3].Results = GetResults(pageContentList[3]);
-            countries[4].Results = GetResults(pageContentList[4]);
+            countries[0].TeamResult = GetResults(pageContentList[0]);
+            countries[1].TeamResult = GetResults(pageContentList[1]);
+            countries[2].TeamResult = GetResults(pageContentList[2]);
+            countries[3].TeamResult = GetResults(pageContentList[3]);
+            countries[4].TeamResult = GetResults(pageContentList[4]);
         }
 
         private static List<TeamResult> GetResults(string pageContent)
@@ -27,26 +27,26 @@
 
             for (int i = 0; i < score.Count; i++)
             {
+                var team1 = team1List[i].Groups[1].ToString();
+                var teamName1 = Regex.Match(team1, @"alt=""(.*?)""", RegexOptions.IgnoreCase);
+                var image1 = Regex.Match(team1, @"<img src=""(.*?)""", RegexOptions.IgnoreCase);
+
+                var team2 = team2List[i].Groups[1].ToString();
+                var teamName2 = Regex.Match(team2, @"alt=""(.*?)""", RegexOptions.IgnoreCase);
+                var image2 = Regex.Match(team2, @"<img src=""(.*?)""", RegexOptions.IgnoreCase);
+
                 resultList.Add(new TeamResult
                 {
-                    TeamName1 = team1List[i].Groups[1].ToString(),
-                    TeamName2 = team2List[i].Groups[1].ToString(),
+                    TeamName1 = teamName1.Groups[1].ToString(),
+                    Image1 = image1.Groups[1].ToString(),
+                    TeamName2 = teamName2.Groups[1].ToString(),
+                    Image2 = image2.Groups[1].ToString(),
                     Score = score[i].Groups[1].ToString()
                 });
             }
 
             foreach (var item in resultList)
             {
-                item.TeamName1 = item.TeamName1.Remove(item.TeamName1.IndexOf("</a>"));
-                int team1IndexOfLink = item.TeamName1.IndexOf("<a");
-                int team1IndexOfClass = item.TeamName1.IndexOf("class=\"\">") != -1 ? item.TeamName1.IndexOf("class=\"\">") + 9 : item.TeamName1.IndexOf("class=\"gagne\">") + 14;
-                item.TeamName1 = item.TeamName1.Remove(team1IndexOfLink, team1IndexOfClass - team1IndexOfLink);
-
-                item.TeamName2 = item.TeamName2.Remove(item.TeamName2.IndexOf("</a>"));
-                int team2IndexOfLink = item.TeamName2.IndexOf("<a");
-                int team2IndexOfClass = item.TeamName2.IndexOf("class=\"\">") != -1 ? item.TeamName2.IndexOf("class=\"\">") + 9 : item.TeamName2.IndexOf("class=\"gagne\">") + 14;
-                item.TeamName2 = item.TeamName2.Remove(team2IndexOfLink, team2IndexOfClass - team2IndexOfLink);
-
                 item.Score = item.Score.Remove(0, item.Score.IndexOf(">") + 1);
                 item.Score = item.Score.Remove(item.Score.IndexOf("</a>"));
             }
