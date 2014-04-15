@@ -4,6 +4,8 @@
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using System.Web;
+
     using FootballScore.Model;
 
     public static class Generator
@@ -58,7 +60,7 @@
                                    };
 
                 Task.WaitAll(pageTaskList);
-                return pageTaskList.Select(t => t.Result).ToList();
+                return pageTaskList.Select(t => HttpUtility.HtmlDecode(t.Result)).ToList();
             }
         }
     }
