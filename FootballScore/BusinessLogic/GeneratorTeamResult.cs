@@ -17,7 +17,7 @@
 
         private static List<TeamResult> GetResults(string pageContent)
         {
-            var sectionContent = Regex.Match(pageContent, @"<div id=""CONT"">(.*?)<div id=""col-droite""", RegexOptions.IgnoreCase);
+            var sectionContent = Regex.Match(pageContent, @"<div id=""CONT"">(.*?)</section>", RegexOptions.IgnoreCase);
 
             var team1List = Regex.Matches(sectionContent.Value, @"<div class=""equipeDom"">(.*?)</div>", RegexOptions.IgnoreCase);
             var team2List = Regex.Matches(sectionContent.Value, @"<div class=""equipeExt"">(.*?)</div>", RegexOptions.IgnoreCase);

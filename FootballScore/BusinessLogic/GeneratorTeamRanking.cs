@@ -17,7 +17,7 @@
 
         private static List<TeamRanking> GetTeamRanking(string pageContent)
         {
-            var sectionContent = Regex.Match(pageContent, @"<div id=""CONT"">(.*?)<div id=""col-droite""", RegexOptions.IgnoreCase);
+            var sectionContent = Regex.Match(pageContent, @"<div id=""CONT"">(.*?)</section>", RegexOptions.IgnoreCase);
 
             var teamList = Regex.Matches(sectionContent.Value, @"<strong>(.*?)</strong></a>", RegexOptions.IgnoreCase);
             var imageList = Regex.Matches(sectionContent.Value, @"<img src=""(.*?)"" alt", RegexOptions.IgnoreCase);

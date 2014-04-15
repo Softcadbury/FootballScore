@@ -17,7 +17,7 @@
 
         private static List<PlayerRanking> GetPlayerRanking(string pageContent)
         {
-            var sectionContent = Regex.Match(pageContent, @"<div id=""cont"">(.*?)<div class=""clear"">", RegexOptions.IgnoreCase);
+            var sectionContent = Regex.Match(pageContent, @"<div id=""cont"">(.*?)</section>", RegexOptions.IgnoreCase);
 
             var playerList = Regex.Matches(sectionContent.Value, @"html""><strong>(.*?)</strong>", RegexOptions.IgnoreCase);
             var imageList = Regex.Matches(sectionContent.Value, @"<img src=""(.*?)"" />", RegexOptions.IgnoreCase);
