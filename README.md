@@ -2,7 +2,7 @@
 
 ## Description
 
-Wpf application to see football scores (results of matches, teams ranking and players ranking)
+This project is a Wpf application useful to see football scores (results of matches, teams ranking and players ranking)
 
 ## Screenshot
 
